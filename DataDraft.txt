@@ -1,0 +1,18 @@
+USER
+- Fullname
+- Username
+- Password
+
+PATIENT
+- ID 
+- Firstname
+- Middlename
+- Lastname
+- Address
+
+PET
+- ID
+- Patient ID (FK)
+- Pet Name
+- Pet Type
+
