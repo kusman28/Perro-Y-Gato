@@ -112,7 +112,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </ul>
           </li>
           <li class="nav-item">
-            <a href="/registered" class="nav-link">
+            <a href="/#" class="nav-link">
               <i class="nav-icon ion-card"></i>
               <p>
                 Payment
@@ -129,13 +129,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="/hajjDocuments" class="nav-link">
+                <a href="/#" class="nav-link">
                   <i class="nav-icon ion-ios-plus"></i>
                   <p>Add Product</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/umrahDocuments" class="nav-link">
+                <a href="/#" class="nav-link">
                   <i class="nav-icon ion-ios-list"></i>
                   <p>List of Product</p>
                 </a>
@@ -143,7 +143,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </ul>
           </li>
             <li class="nav-item">
-              <a href="/history" class="nav-link">
+              <a href="/#" class="nav-link">
                 <i class="nav-icon ion-ios-information"></i>
                 <p>
                   Record
@@ -151,7 +151,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
               </a>
             </li>
             <li class="nav-item">
-              <a href="/history" class="nav-link">
+              <a href="/#" class="nav-link">
                 <i class="nav-icon ion-ios-help"></i>
                 <p>
                   Activity
