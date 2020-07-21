@@ -14,39 +14,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <title>Perro y Gato</title>
   <link rel="stylesheet" type="text/css" href="/css/app.css">
   <link href="template/lib/ionicons/css/ionicons.min.css" rel="stylesheet">
-  <style>
-    .navbar { background-color: #e85f99 !important }
-    .main-sidebar { background-color: #790c5a !important }
-    * {
-        font-family: 'Source Sans Pro';
-    }  
-    body::-webkit-scrollbar {
-    width: 0.4em;
-    }
-
-    body::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-    }
-
-    body::-webkit-scrollbar-thumb {
-    background-color: #e85f99;
-    outline: 1px solid slategrey;
-    }
-    
-    .sidebar::-webkit-scrollbar {
-    width: 0.3em;
-    }
-
-    .sidebar::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-    }
-
-    .sidebar::-webkit-scrollbar-thumb {
-    background-color: #e85f99;
-    
-    outline: 1px solid slategrey;
-    }
-    </style>
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper" id="app">
@@ -114,12 +81,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 
           <li class="nav-item">
-            <a href="/dashboard" class="nav-link">
+            <router-link to="/dashboard" class="nav-link">
             <i class="nav-icon ion-ios-speedometer"></i>
               <p>
                 Dashboard
               </p>
-            </a>
+            </router-link>
           </li>
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
@@ -131,16 +98,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="/pendingHajj" class="nav-link">
+                <router-link to="/addpatient" class="nav-link">
                   <i class="nav-icon ion-ios-personadd"></i>
                   <p>Add Patient</p>
-                </a>
+                </router-link>
               </li>
               <li class="nav-item">
-                <a href="/pendingUmrah" class="nav-link">
+                <router-link to="/listpatient" class="nav-link">
                   <i class="nav-icon ion-ios-people"></i>
                   <p>List of Patient</p>
-                </a>
+                </router-link>
               </li>
             </ul>
           </li>

@@ -7,9 +7,26 @@
 require('./bootstrap');
 
 window.Vue = require('vue');
+import { Form, HasError, AlertError } from 'vform'
+
+import Notifications from 'vue-notification'
+Vue.use(Notifications);
+
+
+window.Form = Form;
+Vue.component(HasError.name, HasError)
+Vue.component(AlertError.name, AlertError)
 
 import VueRouter from 'vue-router'
 Vue.use(VueRouter)
+let routes = [
+  { path: '/addpatient', component: require('./components/patient/AddPatient').default },
+  { path: '/listpatient', component: require('./components/patient/TablePatient').default },
+]
+const router = new VueRouter({
+  mode: 'history',
+  routes,
+})
 
 import VueProgressBar from 'vue-progressbar'
 Vue.use(VueProgressBar, {
@@ -17,6 +34,8 @@ Vue.use(VueProgressBar, {
   failedColor: 'red',
   height: '3px'
 })
+
+window.Fire = new Vue();
 
 /**
  * The following block of code may be used to automatically register your

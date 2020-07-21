@@ -8,7 +8,9 @@ PATIENT
 - Firstname
 - Middlename
 - Lastname
+- Age
 - Address
+- Contact No.
 
 PET
 - ID
