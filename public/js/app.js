@@ -2057,6 +2057,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -40318,14 +40321,25 @@ var render = function() {
                       _vm._v(" "),
                       _c("div", { staticClass: "form-group" }, [
                         _c("div", { staticClass: "checkbox" }, [
-                          _c("label", [
-                            _c("input", {
-                              ref: "fileupload",
-                              staticClass: "form-input",
-                              attrs: { type: "file", name: "image" },
-                              on: { change: _vm.imageProduct }
-                            })
-                          ])
+                          _c(
+                            "label",
+                            [
+                              _c("input", {
+                                ref: "fileupload",
+                                staticClass: "form-input",
+                                class: {
+                                  "is-invalid": _vm.form.errors.has("image")
+                                },
+                                attrs: { type: "file", name: "image" },
+                                on: { change: _vm.imageProduct }
+                              }),
+                              _vm._v(" "),
+                              _c("has-error", {
+                                attrs: { form: _vm.form, field: "price" }
+                              })
+                            ],
+                            1
+                          )
                         ])
                       ])
                     ])

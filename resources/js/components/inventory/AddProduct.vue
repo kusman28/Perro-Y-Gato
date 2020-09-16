@@ -69,7 +69,10 @@
                         <div class="form-group">
                           <div class="checkbox">
                             <label>
-                              <input type="file" @change="imageProduct" ref="fileupload" name="image" class="form-input">
+                              <input type="file" @change="imageProduct" ref="fileupload" name="image" 
+                              class="form-input"
+                              :class="{ 'is-invalid': form.errors.has('image') }">
+                              <has-error :form="form" field="price"></has-error>
                             </label>
                           </div>
                         </div>
