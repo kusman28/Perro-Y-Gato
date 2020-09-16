@@ -72,7 +72,7 @@
                               <input type="file" @change="imageProduct" ref="fileupload" name="image" 
                               class="form-input"
                               :class="{ 'is-invalid': form.errors.has('image') }">
-                              <has-error :form="form" field="price"></has-error>
+                              <has-error :form="form" field="image"></has-error>
                             </label>
                           </div>
                         </div>
