@@ -1,5 +1,5 @@
 <?php
-
+use App\Inventory;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,10 +12,8 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
-
-Auth::routes();
+    $products = Inventory::all();
+    return view('/welcome')->with('products', $products);
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('{path}',"HomeController@index")->where('path','[-a-z0-9_\s]+');

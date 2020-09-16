@@ -19,3 +19,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::apiResources(['patient' => 'API\PatientController']);
 Route::apiResources(['inventory' => 'API\InventoryController']);
+Route::get('product', 'API\InventoryController@product');
