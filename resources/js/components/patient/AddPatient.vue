@@ -107,7 +107,7 @@
                 </div>
               </form>
             </div>
-            <notifications group="foo" position="bottom center" />
+            <notifications group="foo" position="bottom left" />
             </div>
         </div>
     </div>

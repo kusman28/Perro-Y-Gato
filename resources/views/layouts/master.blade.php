@@ -129,13 +129,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="/#" class="nav-link">
+                <a href="/addproduct" class="nav-link">
                   <i class="nav-icon ion-ios-plus"></i>
                   <p>Add Product</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/#" class="nav-link">
+                <a href="/listproduct" class="nav-link">
                   <i class="nav-icon ion-ios-list"></i>
                   <p>List of Product</p>
                 </a>

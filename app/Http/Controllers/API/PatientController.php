@@ -45,7 +45,7 @@ class PatientController extends Controller
             'address' => 'required|string|max:50',
             'pet_name' => 'required|string|max:15',
             'pet_type' => 'required|string|max:15',
-            'pet_note' => 'required|string|max:15',
+            'pet_note' => 'required|string|max:200',
         ]);
 
         return Patient::create([

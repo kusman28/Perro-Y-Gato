@@ -18,3 +18,8 @@ PET
 - Pet Name
 - Pet Type
 
+INVENTORY
+- ID
+- Product Name
+- Description
+- Price
