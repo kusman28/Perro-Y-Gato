@@ -10,10 +10,11 @@ use App\Inventory;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Auth::routes();
 
 Route::get('/', function () {
     $products = Inventory::all();
     return view('/welcome')->with('products', $products);
-
+});
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('{path}',"HomeController@index")->where('path','[-a-z0-9_\s]+');

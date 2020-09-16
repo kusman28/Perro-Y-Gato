@@ -27,7 +27,7 @@
 									<td>{{patient.address}}</td>
 									<td>{{patient.created_at}}</td>
 			                      <td>
-			                      	<a href="#" class="btn btn-primary btn-sm" @click="editPatient(patient)">Edit
+			                      	<a href="#" class="btn btn-primary btn-sm" @click="editPatient(patient)">View
 			                      		<i class="fas fa-edit"></i>
 			                      	</a>
 			                      </td>

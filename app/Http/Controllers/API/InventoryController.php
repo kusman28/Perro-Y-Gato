@@ -15,8 +15,14 @@ class InventoryController extends Controller
      */
     public function index()
     {
-        return dd('wew');
+        return Inventory::latest()->paginate(5);
     }
+
+    // public function product()
+    // {
+    //     $products = Inventory::all();
+    //     return view('/welcome')->with('products', $products);
+    // }
 
     /**
      * Show the form for creating a new resource.

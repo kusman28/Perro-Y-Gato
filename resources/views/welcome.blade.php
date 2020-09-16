@@ -81,7 +81,7 @@
                         @endif --}}
                     @endauth
                     |
-                    <a href=""><i class="ion-social-facebook"></i> Facebook</a>
+                    <a href="https://www.facebook.com/perroygatozc/" target="_blank"><i class="ion-social-facebook"></i> Facebook</a>
                 </div>
             @endif
 

@@ -41603,7 +41603,7 @@ var render = function() {
                           }
                         },
                         [
-                          _vm._v("Edit\n\t\t\t                      \t\t"),
+                          _vm._v("View\n\t\t\t                      \t\t"),
                           _c("i", { staticClass: "fas fa-edit" })
                         ]
                       )
