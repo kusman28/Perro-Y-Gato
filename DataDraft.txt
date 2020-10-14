@@ -23,3 +23,11 @@ INVENTORY
 - Product Name
 - Description
 - Price
+
+PAYMENT
+- ID
+- User_ID (fk)
+- Product 
+- Amount
+- Amount Paid
+- Status

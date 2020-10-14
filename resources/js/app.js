@@ -24,6 +24,7 @@ let routes = [
   { path: '/listpatient', component: require('./components/patient/TablePatient').default },
   { path: '/addproduct', component: require('./components/inventory/AddProduct').default },
   { path: '/listproduct', component: require('./components/inventory/TableProduct').default },
+  { path: '/payment', component: require('./components/payment/Payment').default },
 ]
 const router = new VueRouter({
   mode: 'history',

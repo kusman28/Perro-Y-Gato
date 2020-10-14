@@ -18,4 +18,13 @@ class Patient extends Model
         'pet_type',
         'pet_note',
     ];
+
+    public function payment()
+    {
+        return $this->hasMany(Payment::class);
+    }
+    public function one()
+    {
+        return $this->hasOne(Payment::class);
+    }
 }
