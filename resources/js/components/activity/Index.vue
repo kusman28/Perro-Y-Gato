@@ -5,7 +5,7 @@
         <!-- Timelime example  -->
         <div class="row">
           <div class="col-md-8">
-		<h3 class="card-title mt-4">Activity</h3>
+		<h3 class="card-title mt-3">Activity Log</h3>
 
             <!-- The time line -->
             <ul class="timeline" v-for="activity in activities" :key="activity.id">
@@ -13,7 +13,7 @@
     <!-- timeline time label -->
     <li class="time-label">
         <span class="bg-success">
-            {{activity.updated_at | myDate}}
+            {{activity.updated_at}}
         </span>
     </li>
     <!-- /.timeline-label -->

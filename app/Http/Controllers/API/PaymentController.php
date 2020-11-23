@@ -28,7 +28,7 @@ class PaymentController extends Controller
     public function payments() 
     {
         // return Patient::with('payment')->latest()->get();
-        return Patient::with('payment')->latest()->paginate(5);
+        return Patient::with('payment')->latest()->paginate(8);
         // return Patient::with('one')->latest()->get();
     }
 
@@ -68,7 +68,7 @@ class PaymentController extends Controller
      */
     public function show($id)
     {
-        //
+        return Patient::with('payment')->findOrFail($id);
     }
 
     /**

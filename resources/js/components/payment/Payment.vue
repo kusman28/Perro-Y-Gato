@@ -21,7 +21,7 @@
 								</tr>
 							</thead>
                             <tbody>
-								<tr v-for="p in payments" :key="p.id">
+								<tr v-for="(p, i) in payments" :key="i">
 									<td>{{p.firstname}} {{p.middlename}} {{p.lastname}}</td>
 									<td>{{p.product}}</td>
 									<td>{{p.amount}}</td>

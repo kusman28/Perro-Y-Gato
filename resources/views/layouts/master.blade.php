@@ -90,10 +90,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
           </li>
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
-              <i class="nav-icon ion-ios-medkit"></i>
+              <i class="nav-icon ion-ios-people"></i>
               <p>
                 Patient 
-                <i class="right fas ion-ios-arrow-back mt-1"></i>
+                <i class="nav-icon right fas ion-ios-arrow-back"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
@@ -124,7 +124,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
               <i class="nav-icon ion-ios-filing"></i>
               <p>
                 Inventory
-                <i class="right fas ion-ios-arrow-back mt-1"></i>
+                <i class="nav-icon right fas ion-ios-arrow-back"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
@@ -143,20 +143,20 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </ul>
           </li>
             <li class="nav-item">
-              <a href="/#" class="nav-link">
-                <i class="nav-icon ion-ios-information"></i>
+              <router-link to="/record" class="nav-link">
+                <i class="nav-icon ion-ios-medkit"></i>
                 <p>
                   Record
                 </p>
-              </a>
+              </router-link>
             </li>
             <li class="nav-item">
-              <a href="/activities" class="nav-link">
+              <router-link to="/activities" class="nav-link">
                 <i class="nav-icon ion-ios-help"></i>
                 <p>
                   Activity
                 </p>
-              </a>
+              </router-link>
               <hr>
             </li>
             <li class="nav-item">
