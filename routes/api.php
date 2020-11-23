@@ -17,9 +17,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::apiResources(['patient' => 'API\PatientController']);
-Route::apiResources(['inventory' => 'API\InventoryController']);
-Route::apiResources(['payment' => 'API\PaymentController']);
+// Route::apiResources(['patient' => 'API\PatientController']);
+// Route::apiResources(['inventory' => 'API\InventoryController']);
+// Route::apiResources(['payment' => 'API\PaymentController']);
 
-Route::get('product', 'API\InventoryController@product');
-Route::get('payments', 'API\PaymentController@payments');
+// Route::get('product', 'API\InventoryController@product');
+// Route::get('payments', 'API\PaymentController@payments');

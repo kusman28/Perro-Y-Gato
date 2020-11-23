@@ -151,7 +151,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
               </a>
             </li>
             <li class="nav-item">
-              <a href="/#" class="nav-link">
+              <a href="/activities" class="nav-link">
                 <i class="nav-icon ion-ios-help"></i>
                 <p>
                   Activity

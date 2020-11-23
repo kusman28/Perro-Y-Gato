@@ -20,11 +20,13 @@ Vue.component(AlertError.name, AlertError)
 import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 let routes = [
+  { path: '/dashboard', component: require('./components/dashboard/Index').default },
   { path: '/addpatient', component: require('./components/patient/AddPatient').default },
   { path: '/listpatient', component: require('./components/patient/TablePatient').default },
   { path: '/addproduct', component: require('./components/inventory/AddProduct').default },
   { path: '/listproduct', component: require('./components/inventory/TableProduct').default },
   { path: '/payment', component: require('./components/payment/Payment').default },
+  { path: '/activities', component: require('./components/activity/Index').default },
 ]
 const router = new VueRouter({
   mode: 'history',

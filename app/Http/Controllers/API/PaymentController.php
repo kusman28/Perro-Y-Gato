@@ -21,7 +21,7 @@ class PaymentController extends Controller
             ->join('payments', 'patients.id', '=', 'payments.patient_id') 
             ->select('patients.*', 'payments.product', 'payments.amount', 'payments.amount_paid') 
             ->latest()
-            ->paginate(5); 
+            ->paginate(8); 
         return $payments;
     }
 

@@ -146,28 +146,28 @@
 				// 	this.payments = response.data;
 				// });
             },
-            editProduct(product) {
-                $('#edit').modal('show');
-                this.form.fill(product);
-            },
-            updateProduct() {
-                this.$Progress.start();
-                this.form.put('/api/inventory/'+this.form.id)
-                .then(() => {
-                    $('#edit').modal('hide');
-                    this.$notify({
-                    group: 'foo',
-                    type: 'success',
-                    title: 'SUCCESS',
-                    text: 'Product Updated Successfully.',
-                    })
-                    this.$Progress.finish();
-                    Fire.$emit('ProductCreated');
-                })
-                .catch(() => {
-                    this.$Progress.fail();
-                })
-			},
+            // editProduct(product) {
+            //     $('#edit').modal('show');
+            //     this.form.fill(product);
+            // },
+            // updateProduct() {
+            //     this.$Progress.start();
+            //     this.form.put('/api/inventory/'+this.form.id)
+            //     .then(() => {
+            //         $('#edit').modal('hide');
+            //         this.$notify({
+            //         group: 'foo',
+            //         type: 'success',
+            //         title: 'SUCCESS',
+            //         text: 'Product Updated Successfully.',
+            //         })
+            //         this.$Progress.finish();
+            //         Fire.$emit('ProductCreated');
+            //     })
+            //     .catch(() => {
+            //         this.$Progress.fail();
+            //     })
+			// },
 			addPayment() {
 				this.$Progress.start();
 				this.form.post('/api/payment')
