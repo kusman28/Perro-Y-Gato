@@ -109,4 +109,8 @@ class InventoryController extends Controller
     {
         //
     }
+
+    public function totalproduct() {
+        return Inventory::latest()->paginate();
+    }
 }

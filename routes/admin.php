@@ -13,3 +13,6 @@ Route::apiResources(['activities' => 'API\Admin\ActivityController']);
 
 // Route::get('product', 'API\InventoryController@product');
 Route::get('payments', 'API\PaymentController@payments');
+Route::get('newpatient', 'API\PatientController@newPatient');
+Route::get('totalproduct', 'API\InventoryController@totalproduct');
+Route::get('totalsales', 'API\PaymentController@totalsales');

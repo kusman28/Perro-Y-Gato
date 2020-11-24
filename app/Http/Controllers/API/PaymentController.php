@@ -93,4 +93,10 @@ class PaymentController extends Controller
     {
         //
     }
+
+    public function totalsales() {
+        // return Payment::sum('amount_paid');
+        $data["totalsales"] = Payment::get()->sum("amount_paid");
+        return $data;
+    }
 }

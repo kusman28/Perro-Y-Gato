@@ -4,10 +4,9 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                    <button type="submit" @click="paymentModal" class="btn btn-primary float-right">Add New Payment
+                    <button type="submit" @click="paymentModal" class="btn btn-grad-blue btn-sm float-right">Add New Payment
                     <i class="ion-plus-circled"></i>
                     </button>
-                    <h5>Payment</h5>
                     </div>
                     <div class="card-body table-responsive p-0">
                         <table class="table table-hover">
@@ -44,8 +43,8 @@
         	<div class="modal-dialog modal-dialog-centered" role="document">
         		<div class="modal-content">
         			<div class="modal-header">
-        				<h5 v-show="!editmode" class="modal-title" id="addNewLabel">Add New Payment</h5>
-        				<h5 v-show="editmode" class="modal-title" id="addNewLabel">Edit Patient</h5>
+        				<h6 v-show="!editmode" class="modal-title" id="addNewLabel">ADD PAYMENT</h6>
+        				<h6 v-show="editmode" class="modal-title" id="addNewLabel">EDIT</h6>
         				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
         					<span aria-hidden="true">&times;</span>
         				</button>
@@ -92,9 +91,9 @@
         				</div> -->
         			</div>
         			<div class="modal-footer">
-        				<button type="button" class="btn btn-outline-danger" data-dismiss="modal">Close <i class="fas fa-times"></i></button>
-        				<button v-show="editmode" type="submit" class="btn btn-primary">Update <i class="fas fa-check"></i></button>
-        				<button v-show="!editmode" type="submit" class="btn btn-success">Add <i class="fas fa-check"></i></button>
+        				<button type="button" class="btn btn-sm btn-grad-red" data-dismiss="modal">Cancel <i class="ion-close-round"></i></button>
+        				<button v-show="editmode" type="submit" class="btn btn-grad-blue">Update <i class="ion-checkmark-round"></i></button>
+        				<button v-show="!editmode" type="submit" class="btn btn-sm btn-grad-blue">Add <i class="ion-checkmark-round"></i></button>
         			</div>
         			</form>
         		</div>

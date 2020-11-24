@@ -7,9 +7,9 @@
     <div class="container mt-4">
         <div class="row">
             <div class="col-md-12">
-                <div class="card card-success">
+                <div class="card">
                     <div class="card-header">
-                        <h5>List of Product</h5>
+                        List of Product
                     </div>
 
                     <div class="card-body table-responsive p-0">

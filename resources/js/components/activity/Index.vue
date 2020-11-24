@@ -5,14 +5,14 @@
         <!-- Timelime example  -->
         <div class="row">
           <div class="col-md-8">
-		<h3 class="card-title mt-3">Activity Log</h3>
+		<h5 class="card-title mt-3">ACTIVITY LOG</h5>
 
             <!-- The time line -->
             <ul class="timeline" v-for="activity in activities" :key="activity.id">
 
     <!-- timeline time label -->
     <li class="time-label">
-        <span class="bg-success">
+        <span class="green-card">
             {{activity.updated_at}}
         </span>
     </li>
@@ -42,9 +42,8 @@
                         <router-link v-bind:to="/hajjDocumentsDetails/+activity.subject_id" class="btn btn-primary btn-sm">View Details</router-link>
                     </div> -->
                 </div>
-                <!-- <i class="fa fa-clock bg-info"></i> -->
+                <!-- <i class="ion-ios-clock-outline"></i> -->
             </li>
-            <br>
             <!-- END timeline item -->
 
         </ul>

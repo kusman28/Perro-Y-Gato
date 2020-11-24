@@ -2014,7 +2014,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2106,32 +2105,36 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-/* harmony default export */ __webpack_exports__["default"] = ({});
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      patient: {},
+      inventory: {},
+      sales: {}
+    };
+  },
+  methods: {
+    api: function api() {
+      var _this = this;
+
+      axios.get('api/newpatient').then(function (_ref) {
+        var data = _ref.data;
+        return _this.patient = data.data;
+      });
+      axios.get('api/totalproduct').then(function (_ref2) {
+        var data = _ref2.data;
+        return _this.inventory = data.data;
+      });
+      axios.get('api/totalsales').then(function (_ref3) {
+        var data = _ref3.data;
+        return _this.sales = data;
+      });
+    }
+  },
+  created: function created() {
+    this.api();
+  }
+});
 
 /***/ }),
 
@@ -2906,8 +2909,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2985,7 +2986,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
 //
 //
 //
@@ -40728,14 +40728,14 @@ var render = function() {
         "div",
         { staticClass: "col-md-8" },
         [
-          _c("h3", { staticClass: "card-title mt-3" }, [
-            _vm._v("Activity Log")
+          _c("h5", { staticClass: "card-title mt-3" }, [
+            _vm._v("ACTIVITY LOG")
           ]),
           _vm._v(" "),
           _vm._l(_vm.activities, function(activity) {
             return _c("ul", { key: activity.id, staticClass: "timeline" }, [
               _c("li", { staticClass: "time-label" }, [
-                _c("span", { staticClass: "bg-success" }, [
+                _c("span", { staticClass: "green-card" }, [
                   _vm._v(
                     "\n            " +
                       _vm._s(activity.updated_at) +
@@ -40804,9 +40804,7 @@ var render = function() {
                       ])
                     : _vm._e()
                 ])
-              ]),
-              _vm._v(" "),
-              _c("br")
+              ])
             ])
           })
         ],
@@ -40841,166 +40839,73 @@ var render = function() {
     _c("div", { staticClass: "row justify-content-center" }, [
       _c("div", { staticClass: "col-md-12 mt-5" }, [
         _c("div", { staticClass: "row" }, [
-          _vm._m(0),
-          _vm._v(" "),
           _c("div", { staticClass: "col-12 col-sm-6 col-md-3" }, [
-            _c("div", { staticClass: "info-box mb-3" }, [
-              _vm._m(1),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "info-box-content" },
-                [
-                  _c("span", { staticClass: "info-box-text" }, [
-                    _vm._v("Brace")
+            _c(
+              "a",
+              { staticClass: "custom-card", attrs: { href: "/listpatient" } },
+              [
+                _c("div", { staticClass: "info-box blue-card" }, [
+                  _c("div", { staticClass: "info-box-content" }, [
+                    _c("span", { staticClass: "info-box-text" }, [
+                      _vm._v("New Patient")
+                    ]),
+                    _vm._v(" "),
+                    _c("h2", [_vm._v(_vm._s(_vm.patient.length))])
                   ]),
                   _vm._v(" "),
-                  _c("span", { staticClass: "info-box-number" }, [
-                    _vm._v("\n                12\n              ")
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "router-link",
-                    {
-                      staticClass: "small-box-footer",
-                      attrs: { to: "/brace" }
-                    },
-                    [
-                      _vm._v("View Details\n                  "),
-                      _c("i", { staticClass: "fas fa-chevron-right" })
-                    ]
-                  )
-                ],
-                1
-              )
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "clearfix hidden-md-up" }),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-12 col-sm-6 col-md-3" }, [
-            _c("div", { staticClass: "info-box mb-3" }, [
-              _vm._m(2),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "info-box-content" },
-                [
-                  _c("span", { staticClass: "info-box-text" }, [
-                    _vm._v("Extraction")
-                  ]),
-                  _vm._v(" "),
-                  _c("span", { staticClass: "info-box-number" }, [
-                    _vm._v("\n              33\n            ")
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "router-link",
-                    {
-                      staticClass: "small-box-footer",
-                      attrs: { to: "/extraction" }
-                    },
-                    [
-                      _vm._v("View Details\n                  "),
-                      _c("i", { staticClass: "fas fa-chevron-right" })
-                    ]
-                  )
-                ],
-                1
-              )
-            ])
+                  _c("i", { staticClass: "ion-ios-people size-md mr-3" })
+                ])
+              ]
+            )
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "col-12 col-sm-6 col-md-3" }, [
-            _c("div", { staticClass: "info-box mb-3" }, [
-              _vm._m(3),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "info-box-content" },
-                [
-                  _c("span", { staticClass: "info-box-text" }, [
-                    _vm._v("Denture")
+            _c(
+              "a",
+              { staticClass: "custom-card", attrs: { href: "/listproduct" } },
+              [
+                _c("div", { staticClass: "info-box green-card" }, [
+                  _c("div", { staticClass: "info-box-content" }, [
+                    _c("span", { staticClass: "info-box-text" }, [
+                      _vm._v("Total Product")
+                    ]),
+                    _vm._v(" "),
+                    _c("h2", [_vm._v(_vm._s(_vm.inventory.length))])
                   ]),
                   _vm._v(" "),
-                  _c("span", { staticClass: "info-box-number" }, [
-                    _vm._v("22")
+                  _c("i", { staticClass: "ion-ios-filing size-md mr-3" })
+                ])
+              ]
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-12 col-sm-6 col-md-3" }, [
+            _c(
+              "a",
+              { staticClass: "custom-card", attrs: { href: "/payment" } },
+              [
+                _c("div", { staticClass: "info-box red-card" }, [
+                  _c("div", { staticClass: "info-box-content" }, [
+                    _c("span", { staticClass: "info-box-text" }, [
+                      _vm._v("Total Sales")
+                    ]),
+                    _vm._v(" "),
+                    _c("h2", [_vm._v("₱ " + _vm._s(_vm.sales.totalsales))])
                   ]),
                   _vm._v(" "),
-                  _c(
-                    "router-link",
-                    {
-                      staticClass: "small-box-footer",
-                      attrs: { to: "/denture" }
-                    },
-                    [
-                      _vm._v("View Details\n                  "),
-                      _c("i", { staticClass: "fas fa-chevron-right" })
-                    ]
-                  )
-                ],
-                1
-              )
-            ])
-          ])
+                  _c("i", { staticClass: "ion-ios-cart size-md mr-3" })
+                ])
+              ]
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "clearfix hidden-md-up" })
         ])
       ])
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-12 col-sm-6 col-md-3" }, [
-      _c("div", { staticClass: "info-box" }, [
-        _c("span", { staticClass: "info-box-icon bg-info elevation-1" }, [
-          _c("i", { staticClass: "ion-ios-people" })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "info-box-content" }, [
-          _c("span", { staticClass: "info-box-text" }, [
-            _vm._v("New Patients")
-          ]),
-          _vm._v(" "),
-          _c("span", { staticClass: "info-box-number" }, [
-            _vm._v(
-              "\n                            \n                          13\n                          "
-            ),
-            _c("small", [_vm._v("%")])
-          ]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "/listpatient" } }, [_vm._v("View All")])
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("span", { staticClass: "info-box-icon bg-warning elevation-1" }, [
-      _c("i", { staticClass: "fas fa-teeth nav-icon" })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("span", { staticClass: "info-box-icon bg-primary elevation-1" }, [
-      _c("i", { staticClass: "fas fa-tooth nav-icon" })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("span", { staticClass: "info-box-icon bg-success elevation-1" }, [
-      _c("i", { staticClass: "fas fa-teeth-open nav-icon" })
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -41028,8 +40933,10 @@ var render = function() {
         "div",
         { staticClass: "col-md-12" },
         [
-          _c("div", { staticClass: "card card-success" }, [
-            _vm._m(0),
+          _c("div", { staticClass: "card" }, [
+            _c("div", { staticClass: "card-header" }, [
+              _vm._v("\n            Add Product\n          ")
+            ]),
             _vm._v(" "),
             _c(
               "form",
@@ -41100,7 +41007,7 @@ var render = function() {
                         "div",
                         { staticClass: "input-group" },
                         [
-                          _vm._m(1),
+                          _vm._m(0),
                           _vm._v(" "),
                           _c("input", {
                             directives: [
@@ -41233,7 +41140,7 @@ var render = function() {
                   ])
                 ]),
                 _vm._v(" "),
-                _vm._m(2)
+                _vm._m(1)
               ]
             )
           ]),
@@ -41252,14 +41159,6 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card-header" }, [
-      _c("h5", [_vm._v("Add Product")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
     return _c("div", { staticClass: "input-group-prepend" }, [
       _c("span", { staticClass: "input-group-text" }, [
         _c("i", { staticClass: "ion-ios-pricetag" })
@@ -41273,17 +41172,14 @@ var staticRenderFns = [
     return _c("div", { staticClass: "card-footer" }, [
       _c(
         "button",
-        {
-          staticClass: "btn btn-lg btn-success mr-2",
-          attrs: { type: "submit" }
-        },
-        [_vm._v("Create "), _c("i", { staticClass: "ion-ios-checkmark" })]
+        { staticClass: "btn btn-sm btn-grad-blue", attrs: { type: "submit" } },
+        [_vm._v("Create "), _c("i", { staticClass: "ion-checkmark-round" })]
       ),
       _vm._v(" "),
       _c(
         "a",
         {
-          staticClass: "btn btn-lg btn-outline-danger",
+          staticClass: "btn btn-sm btn-grad-red",
           attrs: { href: "/dashboard" }
         },
         [_vm._v("Cancel "), _c("i", { staticClass: "ion-ios-close" })]
@@ -41315,12 +41211,16 @@ var render = function() {
   return _c("div", { staticClass: "container mt-4" }, [
     _c("div", { staticClass: "row" }, [
       _c("div", { staticClass: "col-md-12" }, [
-        _c("div", { staticClass: "card card-success" }, [
-          _vm._m(0),
+        _c("div", { staticClass: "card" }, [
+          _c("div", { staticClass: "card-header" }, [
+            _vm._v(
+              "\n                        List of Product\n                    "
+            )
+          ]),
           _vm._v(" "),
           _c("div", { staticClass: "card-body table-responsive p-0" }, [
             _c("table", { staticClass: "table table-hover" }, [
-              _vm._m(1),
+              _vm._m(0),
               _vm._v(" "),
               _c(
                 "tbody",
@@ -41375,7 +41275,7 @@ var render = function() {
           },
           [
             _c("div", { staticClass: "modal-content" }, [
-              _vm._m(2),
+              _vm._m(1),
               _vm._v(" "),
               _c(
                 "form",
@@ -41819,7 +41719,7 @@ var render = function() {
                     ])
                   ]),
                   _vm._v(" "),
-                  _vm._m(3)
+                  _vm._m(2)
                 ]
               )
             ]),
@@ -41835,14 +41735,6 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card-header" }, [
-      _c("h5", [_vm._v("List of Product")])
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -41922,8 +41814,10 @@ var render = function() {
         "div",
         { staticClass: "col-md-12" },
         [
-          _c("div", { staticClass: "card card-primary" }, [
-            _vm._m(0),
+          _c("div", { staticClass: "card" }, [
+            _c("div", { staticClass: "card-header" }, [
+              _vm._v("\n              ADD PATIENT\n          ")
+            ]),
             _vm._v(" "),
             _c(
               "form",
@@ -42380,7 +42274,7 @@ var render = function() {
                   ])
                 ]),
                 _vm._v(" "),
-                _vm._m(1)
+                _vm._m(0)
               ]
             )
           ]),
@@ -42399,31 +42293,20 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card-header" }, [
-      _c("h5", [_vm._v("Add Patient")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
     return _c("div", { staticClass: "card-footer" }, [
       _c(
         "button",
-        {
-          staticClass: "btn btn-lg btn-primary mr-2",
-          attrs: { type: "submit" }
-        },
-        [_vm._v("Create "), _c("i", { staticClass: "ion-ios-checkmark" })]
+        { staticClass: "btn btn-sm btn-grad-blue", attrs: { type: "submit" } },
+        [_vm._v("Create "), _c("i", { staticClass: "ion-checkmark-round" })]
       ),
       _vm._v(" "),
       _c(
         "a",
         {
-          staticClass: "btn btn-lg btn-outline-danger",
+          staticClass: "btn btn-sm btn-grad-red",
           attrs: { href: "/dashboard" }
         },
-        [_vm._v("Cancel "), _c("i", { staticClass: "ion-ios-close" })]
+        [_vm._v("Cancel "), _c("i", { staticClass: "ion-close-round" })]
       )
     ])
   }
@@ -42452,12 +42335,16 @@ var render = function() {
   return _c("div", { staticClass: "container mt-4" }, [
     _c("div", { staticClass: "row" }, [
       _c("div", { staticClass: "col-md-12" }, [
-        _c("div", { staticClass: "card card-primary" }, [
-          _vm._m(0),
+        _c("div", { staticClass: "card" }, [
+          _c("div", { staticClass: "card-header" }, [
+            _vm._v(
+              "\n                        LIST OF PATIENT\n                    "
+            )
+          ]),
           _vm._v(" "),
           _c("div", { staticClass: "card-body table-responsive p-0" }, [
             _c("table", { staticClass: "table table-hover" }, [
-              _vm._m(1),
+              _vm._m(0),
               _vm._v(" "),
               _c(
                 "tbody",
@@ -42485,7 +42372,7 @@ var render = function() {
                       _c(
                         "a",
                         {
-                          staticClass: "btn btn-primary btn-sm",
+                          staticClass: "btn btn-grad-blue btn-sm",
                           attrs: { href: "#" },
                           on: {
                             click: function($event) {
@@ -42530,7 +42417,11 @@ var render = function() {
           },
           [
             _c("div", { staticClass: "modal-content" }, [
-              _vm._m(2),
+              _c("div", { staticClass: "card-header" }, [
+                _vm._v(
+                  "\n                        EDIT PATIENT\n                        "
+                )
+              ]),
               _vm._v(" "),
               _c(
                 "form",
@@ -42974,7 +42865,7 @@ var render = function() {
                     ])
                   ]),
                   _vm._v(" "),
-                  _vm._m(3)
+                  _vm._m(1)
                 ]
               )
             ]),
@@ -42990,14 +42881,6 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card-header" }, [
-      _c("h5", [_vm._v("List of Patient")])
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -43022,30 +42905,20 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card card-primary" }, [
-      _c("div", { staticClass: "card-header" }, [
-        _c("h5", { staticClass: "modal-title" }, [_vm._v("Edit Patient")])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
     return _c("div", { staticClass: "modal-footer" }, [
       _c(
         "button",
         {
-          staticClass: "btn btn-outline-danger",
+          staticClass: "btn btn-sm btn-grad-red",
           attrs: { type: "button", "data-dismiss": "modal" }
         },
-        [_vm._v("Cancel "), _c("i", { staticClass: "fas fa-times" })]
+        [_vm._v("Cancel "), _c("i", { staticClass: "ion-close-round" })]
       ),
       _vm._v(" "),
       _c(
         "button",
-        { staticClass: "btn btn-primary", attrs: { type: "submit" } },
-        [_vm._v("Update "), _c("i", { staticClass: "fas fa-check" })]
+        { staticClass: "btn btn-sm btn-grad-blue", attrs: { type: "submit" } },
+        [_vm._v("Update "), _c("i", { staticClass: "ion-checkmark-round" })]
       )
     ])
   }
@@ -43079,7 +42952,7 @@ var render = function() {
             _c(
               "button",
               {
-                staticClass: "btn btn-primary float-right",
+                staticClass: "btn btn-grad-blue btn-sm float-right",
                 attrs: { type: "submit" },
                 on: { click: _vm.paymentModal }
               },
@@ -43087,9 +42960,7 @@ var render = function() {
                 _vm._v("Add New Payment\n                    "),
                 _c("i", { staticClass: "ion-plus-circled" })
               ]
-            ),
-            _vm._v(" "),
-            _c("h5", [_vm._v("Payment")])
+            )
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "card-body table-responsive p-0" }, [
@@ -43148,7 +43019,7 @@ var render = function() {
             _c("div", { staticClass: "modal-content" }, [
               _c("div", { staticClass: "modal-header" }, [
                 _c(
-                  "h5",
+                  "h6",
                   {
                     directives: [
                       {
@@ -43161,11 +43032,11 @@ var render = function() {
                     staticClass: "modal-title",
                     attrs: { id: "addNewLabel" }
                   },
-                  [_vm._v("Add New Payment")]
+                  [_vm._v("ADD PAYMENT")]
                 ),
                 _vm._v(" "),
                 _c(
-                  "h5",
+                  "h6",
                   {
                     directives: [
                       {
@@ -43178,7 +43049,7 @@ var render = function() {
                     staticClass: "modal-title",
                     attrs: { id: "addNewLabel" }
                   },
-                  [_vm._v("Edit Patient")]
+                  [_vm._v("EDIT")]
                 ),
                 _vm._v(" "),
                 _vm._m(1)
@@ -43428,12 +43299,12 @@ var render = function() {
                             expression: "editmode"
                           }
                         ],
-                        staticClass: "btn btn-primary",
+                        staticClass: "btn btn-grad-blue",
                         attrs: { type: "submit" }
                       },
                       [
                         _vm._v("Update "),
-                        _c("i", { staticClass: "fas fa-check" })
+                        _c("i", { staticClass: "ion-checkmark-round" })
                       ]
                     ),
                     _vm._v(" "),
@@ -43448,10 +43319,13 @@ var render = function() {
                             expression: "!editmode"
                           }
                         ],
-                        staticClass: "btn btn-success",
+                        staticClass: "btn btn-sm btn-grad-blue",
                         attrs: { type: "submit" }
                       },
-                      [_vm._v("Add "), _c("i", { staticClass: "fas fa-check" })]
+                      [
+                        _vm._v("Add "),
+                        _c("i", { staticClass: "ion-checkmark-round" })
+                      ]
                     )
                   ])
                 ]
@@ -43509,10 +43383,10 @@ var staticRenderFns = [
     return _c(
       "button",
       {
-        staticClass: "btn btn-outline-danger",
+        staticClass: "btn btn-sm btn-grad-red",
         attrs: { type: "button", "data-dismiss": "modal" }
       },
-      [_vm._v("Close "), _c("i", { staticClass: "fas fa-times" })]
+      [_vm._v("Cancel "), _c("i", { staticClass: "ion-close-round" })]
     )
   }
 ]
@@ -43540,12 +43414,16 @@ var render = function() {
   return _c("div", { staticClass: "container mt-4" }, [
     _c("div", { staticClass: "row" }, [
       _c("div", { staticClass: "col-md-12" }, [
-        _c("div", { staticClass: "card card-secondary" }, [
-          _vm._m(0),
+        _c("div", { staticClass: "card" }, [
+          _c("div", { staticClass: "card-header" }, [
+            _vm._v(
+              "\n                        PATIENT'S RECORD\n                    "
+            )
+          ]),
           _vm._v(" "),
           _c("div", { staticClass: "card-body table-responsive p-0" }, [
             _c("table", { staticClass: "table table-hover" }, [
-              _vm._m(1),
+              _vm._m(0),
               _vm._v(" "),
               _c(
                 "tbody",
@@ -43571,7 +43449,7 @@ var render = function() {
                         _c(
                           "router-link",
                           {
-                            staticClass: "btn btn-primary btn-sm",
+                            staticClass: "btn btn-sm btn-grad-blue",
                             attrs: { to: "record/patient/" + record.id }
                           },
                           [
@@ -43596,14 +43474,6 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card-header" }, [
-      _c("h5", [_vm._v("Patient's Record")])
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -43645,7 +43515,7 @@ var render = function() {
   return _c("div", { staticClass: "container mt-4" }, [
     _c("div", { staticClass: "row" }, [
       _c("div", { staticClass: "col-md-8" }, [
-        _c("div", { staticClass: "card card-primary" }, [
+        _c("div", { staticClass: "card" }, [
           _c("div", { staticClass: "card-header" }, [
             _c("h3", { staticClass: "card-title" }, [
               _vm._v(

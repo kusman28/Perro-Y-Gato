@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Patient;
+use Carbon\Carbon;
 
 class PatientController extends Controller
 {
@@ -15,7 +16,7 @@ class PatientController extends Controller
      */
     public function index()
     {
-        return Patient::latest()->paginate(5);
+        return Patient::latest()->paginate(10);
     }
 
     /**
@@ -121,5 +122,9 @@ class PatientController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function newPatient(){
+        return Patient::whereDate('created_at', Carbon::today())->latest()->paginate();
     }
 }

@@ -13,9 +13,9 @@
     <div class="container mt-4">
         <div class="row">
             <div class="col-md-12">
-                <div class="card card-success">
+                <div class="card">
               <div class="card-header">
-                <h5>Add Product</h5>
+                Add Product
               </div>
               <!-- /.card-header -->
               <!-- form start -->
@@ -89,8 +89,8 @@
                 <!-- /.card-body -->
 
                 <div class="card-footer">
-                  <button type="submit" class="btn btn-lg btn-success mr-2">Create <i class="ion-ios-checkmark"></i></button>
-                  <a href="/dashboard" class="btn btn-lg btn-outline-danger">Cancel <i class="ion-ios-close"></i></a>
+                  <button type="submit" class="btn btn-sm btn-grad-blue">Create <i class="ion-checkmark-round"></i></button>
+                  <a href="/dashboard" class="btn btn-sm btn-grad-red">Cancel <i class="ion-ios-close"></i></a>
                 </div>
               </form>
             </div>

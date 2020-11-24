@@ -2,9 +2,9 @@
     <div class="container mt-4">
         <div class="row">
             <div class="col-md-12">
-                <div class="card card-primary">
+                <div class="card">
                     <div class="card-header">
-                        <h5>List of Patient</h5>
+                        LIST OF PATIENT
                     </div>
 
                     <div class="card-body table-responsive p-0">
@@ -27,7 +27,7 @@
 									<td>{{patient.address}}</td>
 									<td>{{patient.created_at}}</td>
 			                      <td>
-			                      	<a href="#" class="btn btn-primary btn-sm" @click="editPatient(patient)">View
+			                      	<a href="#" class="btn btn-grad-blue btn-sm" @click="editPatient(patient)">View
 			                      		<i class="fas fa-edit"></i>
 			                      	</a>
 			                      </td>
@@ -43,11 +43,9 @@
         <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="editLabel" aria-hidden="true">
         	<div class="modal-dialog modal-dialog-centered" role="document">
         		<div class="modal-content">
-                    <div class="card card-primary">
                         <div class="card-header">
-                        <h5 class="modal-title">Edit Patient</h5>
+                        EDIT PATIENT
                         </div>
-                    </div>
         			<!-- <div class="modal-header">
         				<h5 class="modal-title" id="addNewLabel">Edit Patient</h5>
         				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -142,8 +140,8 @@
                         </div>
         			</div>
         			<div class="modal-footer">
-        				<button type="button" class="btn btn-outline-danger" data-dismiss="modal">Cancel <i class="fas fa-times"></i></button>
-        				<button type="submit" class="btn btn-primary">Update <i class="fas fa-check"></i></button>
+        				<button type="button" class="btn btn-sm btn-grad-red" data-dismiss="modal">Cancel <i class="ion-close-round"></i></button>
+        				<button type="submit" class="btn btn-sm btn-grad-blue">Update <i class="ion-checkmark-round"></i></button>
         			</div>
         			</form>
         		</div>
