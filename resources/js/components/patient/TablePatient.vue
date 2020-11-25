@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">
+                    <div class="card-header p-3">
                         LIST OF PATIENT
                     </div>
 
@@ -141,7 +141,7 @@
         			</div>
         			<div class="modal-footer">
         				<button type="button" class="btn btn-sm btn-grad-red" data-dismiss="modal">Cancel <i class="ion-close-round"></i></button>
-        				<button type="submit" class="btn btn-sm btn-grad-blue">Update <i class="ion-checkmark-round"></i></button>
+        				<button type="submit" class="btn btn-sm btn-grad-green">Update <i class="ion-checkmark-round"></i></button>
         			</div>
         			</form>
         		</div>

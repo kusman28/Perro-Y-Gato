@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
-              <div class="card-header">
+              <div class="card-header p-3">
                   ADD PATIENT
               </div>
               <!-- /.card-header -->
@@ -143,7 +143,7 @@
                 group: 'foo',
                 type: 'success',
                 title: 'SUCCESS',
-                text: 'Patient Created Successfully.',
+                text: 'Patient Created.',
                 });
                 this.$Progress.finish();
                 this.form.reset();

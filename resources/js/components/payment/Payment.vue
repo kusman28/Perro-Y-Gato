@@ -177,7 +177,7 @@
 					group: 'foo',
 					type: 'success',
 					title: 'SUCCESS',
-					text: 'Payment Added Successfully.',
+					text: 'Payment Added.',
 					});
 				})
 				.catch(()=>{

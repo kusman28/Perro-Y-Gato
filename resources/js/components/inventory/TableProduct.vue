@@ -8,8 +8,8 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">
-                        List of Product
+                    <div class="card-header p-3">
+                        LIST OF PRODUCT
                     </div>
 
                     <div class="card-body table-responsive p-0">
@@ -21,7 +21,7 @@
 									<th>Name</th>
 									<th>Description</th>
 									<th>Price</th>
-									<th>Action</th>
+									<!-- <th>Action</th> -->
 								</tr>
 							</thead>
                             <tbody>

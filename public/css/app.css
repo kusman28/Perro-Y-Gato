@@ -24103,6 +24103,29 @@ body::-webkit-scrollbar-thumb {
   text-decoration: none;
 }
 
+.btn-grad-green {
+  background-image: linear-gradient(to right, #1CD8D2 0%, #93EDC7 51%, #1CD8D2 100%);
+}
+
+.btn-grad-green {
+  margin: 8px;
+  padding: 8px 25px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 6px;
+}
+
+.btn-grad-green:hover {
+  background-position: right center;
+  /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
+
 .router-link-exact-active {
   background-color: #e85f99;
   color: #fff !important;
@@ -24119,6 +24142,13 @@ a.custom-card:hover {
   background-image: linear-gradient(-20deg, #e0c3fc 0%, #8ec5fc 100%);
 }
 
+.blue-card:hover {
+  background-position: -120deg;
+  /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
+
 .green-card {
   color: white;
   background-image: linear-gradient(-20deg, #8ddad5 0%, #00cdac 100%);
@@ -24131,5 +24161,13 @@ a.custom-card:hover {
 
 i.size-md {
   font-size: 50px;
+}
+
+.custom-card > .info-box > .icon > .fa {
+  transition: font-size 0.35s ease;
+}
+
+.custom-card:hover > .info-box > .icon > .fa {
+  font-size: 5em;
 }
 

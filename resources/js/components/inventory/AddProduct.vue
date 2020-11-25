@@ -14,8 +14,8 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
-              <div class="card-header">
-                Add Product
+              <div class="card-header p-3">
+                ADD PRODUCT
               </div>
               <!-- /.card-header -->
               <!-- form start -->

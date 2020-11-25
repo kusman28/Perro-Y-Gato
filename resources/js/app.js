@@ -21,14 +21,15 @@ import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 let routes = [
   { path: '/dashboard', component: require('./components/dashboard/Index').default },
-  { path: '/addpatient', component: require('./components/patient/AddPatient').default },
-  { path: '/listpatient', component: require('./components/patient/TablePatient').default },
-  { path: '/addproduct', component: require('./components/inventory/AddProduct').default },
-  { path: '/listproduct', component: require('./components/inventory/TableProduct').default },
+  { path: '/patient/add', component: require('./components/patient/AddPatient').default },
+  { path: '/patient/list', component: require('./components/patient/TablePatient').default },
+  { path: '/product/add', component: require('./components/inventory/AddProduct').default },
+  { path: '/product/list', component: require('./components/inventory/TableProduct').default },
   { path: '/payment', component: require('./components/payment/Payment').default },
   { path: '/record', component: require('./components/record/Index').default },
   { path: '/record/patient/:id', component: require('./components/record/Patient').default },
   { path: '/activities', component: require('./components/activity/Index').default },
+  { path: '/settings', component: require('./components/settings/Index').default },
 ]
 const router = new VueRouter({
   mode: 'history',

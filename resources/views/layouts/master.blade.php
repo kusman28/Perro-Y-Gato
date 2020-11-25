@@ -98,13 +98,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <router-link to="/addpatient" class="nav-link">
+                <router-link to="/patient/add" class="nav-link">
                   <i class="nav-icon ion-ios-personadd"></i>
                   <p>Add Patient</p>
                 </router-link>
               </li>
               <li class="nav-item">
-                <router-link to="/listpatient" class="nav-link">
+                <router-link to="/patient/list" class="nav-link">
                   <i class="nav-icon ion-ios-people"></i>
                   <p>List of Patient</p>
                 </router-link>
@@ -129,13 +129,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <router-link to="/addproduct" class="nav-link">
+                <router-link to="/product/add" class="nav-link">
                   <i class="nav-icon ion-ios-plus"></i>
                   <p>Add Product</p>
                 </router-link>
               </li>
               <li class="nav-item">
-                <router-link to="/listproduct" class="nav-link">
+                <router-link to="/product/list" class="nav-link">
                   <i class="nav-icon ion-ios-list"></i>
                   <p>List of Product</p>
                 </router-link>

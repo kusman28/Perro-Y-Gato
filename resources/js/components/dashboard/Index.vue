@@ -5,51 +5,57 @@
               <div class="row">
                     
               <div class="col-12 col-sm-6 col-md-3">
-                  <a href="/listpatient" class="custom-card">
+                  <router-link to="/patient/list" class="custom-card">
 
                       <div class="info-box blue-card">
                         <div class="info-box-content">
                           <span class="info-box-text">New Patient</span>
-                          <h2>{{patient.length}}</h2>
+                          <h1>{{patient.length}}</h1>
                             <!-- <small>%</small> -->
                             </div>
-                            <i class="ion-ios-people size-md mr-3"></i>
+                            <div class="icon">
+                              <i class="fa ion-ios-people size-md mr-3"></i>
+                            </div>
                             <!-- /.info-box-content -->
                         </div>
                     <!-- /.info-box -->
-                  </a>
+                  </router-link>
               </div>
 
               <div class="col-12 col-sm-6 col-md-3">
-                  <a href="/listproduct" class="custom-card">
+                  <router-link to="/product/list" class="custom-card">
 
                       <div class="info-box green-card">
                         <div class="info-box-content">
                           <span class="info-box-text">Total Product</span>
-                          <h2>{{inventory.length}}</h2>
+                          <h1>{{inventory.length}}</h1>
                             <!-- <small>%</small> -->
                             </div>
-                            <i class="ion-ios-filing size-md mr-3"></i>
+                            <div class="icon">
+                              <i class="fa ion-ios-filing size-md mr-3"></i>
+                            </div>
                             <!-- /.info-box-content -->
                         </div>
                     <!-- /.info-box -->
-                  </a>
+                  </router-link>
               </div>
 
               <div class="col-12 col-sm-6 col-md-3">
-                  <a href="/payment" class="custom-card">
+                  <router-link to="/payment" class="custom-card">
 
                       <div class="info-box red-card">
                         <div class="info-box-content">
                           <span class="info-box-text">Total Sales</span>
-                          <h2>₱ {{sales.totalsales}}</h2>
+                          <h1>₱ {{sales.totalsales}}</h1>
                             <!-- <small>%</small> -->
                             </div>
-                            <i class="ion-ios-cart size-md mr-3"></i>
+                            <div class="icon">
+                              <i class="fa ion-ios-cart size-md mr-3"></i>
+                            </div>
                             <!-- /.info-box-content -->
                         </div>
                     <!-- /.info-box -->
-                  </a>
+                  </router-link>
               </div>
 
           <!-- /.col -->

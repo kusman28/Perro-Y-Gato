@@ -16,3 +16,6 @@ Route::get('payments', 'API\PaymentController@payments');
 Route::get('newpatient', 'API\PatientController@newPatient');
 Route::get('totalproduct', 'API\InventoryController@totalproduct');
 Route::get('totalsales', 'API\PaymentController@totalsales');
+
+Route::get('profile', 'API\UserController@profile');
+Route::put('profile', 'API\UserController@update');
