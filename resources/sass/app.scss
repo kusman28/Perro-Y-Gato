@@ -1,5 +1,5 @@
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700');
+// @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700');
 
 // Variables
 @import 'variables';
@@ -8,10 +8,17 @@
 @import '~bootstrap/scss/bootstrap';
 @import '~admin-lte/dist/css/adminlte.css';
 
+@font-face {
+  font-family: 'Product Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Open Sans'), local('OpenSans'), url(https://fonts.gstatic.com/s/productsans/v5/HYvgU2fE2nRJvZ5JFAumwegdm0LZdjqr5-oayXSOefg.woff2) format('woff2');
+}
+
 .navbar { background-color: #e85f99 !important }
 .main-sidebar { background-color: #790c5a !important }
 * {
-    font-family: 'Source Sans Pro';
+    font-family: 'Product Sans';
 }  
 body::-webkit-scrollbar {
 width: 0.4em;
