@@ -36,10 +36,10 @@
 							<input type="password" v-model="form.password" class="form-control" v-show="!showPass" placeholder="Password" :class="{ 'is-invalid': form.errors.has('password') }">	
                           <input type="text" v-model="form.password" class="form-control" v-show="showPass" placeholder="Password" :class="{ 'is-invalid': form.errors.has('password') }">	
 			
-						  <has-error :form="form" field="password"></has-error>
-						<span class="input-group-append">
-							<button class="btn btn-primary" @click.prevent="showPass = !showPass"><span v-show="!showPass"><i class="ion-eye"></i></span><span v-show="showPass"><i class="ion-eye-disabled"></i></span></button>
-						</span>
+						          <has-error :form="form" field="password"></has-error>
+                      <span class="input-group-append">
+                        <button class="btn btn-primary" @click.prevent="showPass = !showPass"><span v-show="!showPass">Show</span><span v-show="showPass">Hide</span></button>
+                      </span>
                       </div>
                       </div>
 					  
