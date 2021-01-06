@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Patient;
+use App\Pet;
 use Carbon\Carbon;
 
 class PatientController extends Controller
@@ -124,7 +125,21 @@ class PatientController extends Controller
         //
     }
 
-    public function newPatient(){
+    public function newPatient() {
         return Patient::whereDate('created_at', Carbon::today())->latest()->paginate();
+    }
+
+    public function addPet(Request $request) {
+        $this->validate($request,[
+            'pet_name' => 'required|string|max:15',
+            'pet_type' => 'required|string|max:15',
+            'pet_note' => 'required|string|max:200',
+        ]);
+
+        return Pet::create($request->all());
+    }
+
+    public function getPet($id) {
+        return Patient::with('pet')->findOrFail($id);
     }
 }

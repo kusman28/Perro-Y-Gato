@@ -17,7 +17,6 @@ class Payment extends Model
         'patient_id',
         'product',
         'amount',
-        'amount_paid',
     ];
 
     public function patients()

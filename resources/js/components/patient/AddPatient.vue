@@ -10,6 +10,42 @@
               <!-- form start -->
               <form method="POST" @submit.prevent="addPatient()" role="form">
                 <div class="card-body">
+                
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="pet_name">Pet Name</label>
+                            <input type="text" name="pet_name" v-model="form.pet_name" class="form-control"
+                            :class="{ 'is-invalid': form.errors.has('pet_name') }">
+                            <has-error :form="form" field="pet_name"></has-error>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Pet Type</label>
+                            <select name="pet_type" id="pet_type" v-model="form.pet_type" class="form-control"
+                            :class="{ 'is-invalid': form.errors.has('pet_type') }">
+                            <option>Select</option>
+                            <option value="Perro">Perro (Dog)</option>
+                            <option value="Gato">Gato (Cat)</option>
+                            </select>
+                            <has-error :form="form" field="pet_type"></has-error>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="form-group">
+                            <label for="pet_note">Notes</label>
+                            <textarea name="pet_note" v-model="form.pet_note" class="form-control" placeholder="Pet's Note"
+                            :class="{ 'is-invalid': form.errors.has('pet_note') }">
+                            <has-error :form="form" field="pet_note"></has-error>
+                            </textarea>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <h5>Owner's Information</h5>
                 <div class="row">
                     <div class="col-md-3">
                     <div class="form-group">
@@ -65,44 +101,11 @@
                     </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label for="pet_name">Pet Name</label>
-                            <input type="text" name="pet_name" v-model="form.pet_name" class="form-control"
-                            :class="{ 'is-invalid': form.errors.has('pet_name') }">
-                            <has-error :form="form" field="pet_name"></has-error>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label>Pet Type</label>
-                            <select name="pet_type" id="pet_type" v-model="form.pet_type" class="form-control"
-                            :class="{ 'is-invalid': form.errors.has('pet_type') }">
-                            <option>Select</option>
-                            <option value="Perro">Perro (Dog)</option>
-                            <option value="Gato">Gato (Cat)</option>
-                            </select>
-                            <has-error :form="form" field="pet_type"></has-error>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-8">
-                        <div class="form-group">
-                            <label for="pet_note">Notes</label>
-                            <textarea name="pet_note" v-model="form.pet_note" class="form-control" placeholder="Pet's Note"
-                            :class="{ 'is-invalid': form.errors.has('pet_note') }">
-                            <has-error :form="form" field="pet_note"></has-error>
-                            </textarea>
-                        </div>
-                    </div>
-                </div>
             </div>
                 <!-- /.card-body -->
 
                 <div class="card-footer">
-                  <button type="submit" class="btn btn-sm btn-grad-blue">Create <i class="ion-checkmark-round"></i></button>
+                  <button type="submit" class="btn btn-sm btn-grad-blue">Create Patient <i class="ion-checkmark-round"></i></button>
                   <a href="/dashboard" class="btn btn-sm btn-grad-red">Cancel <i class="ion-close-round"></i></a>
                 </div>
               </form>

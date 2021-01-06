@@ -89,7 +89,7 @@
                 <!-- /.card-body -->
 
                 <div class="card-footer">
-                  <button type="submit" class="btn btn-sm btn-grad-blue">Create <i class="ion-checkmark-round"></i></button>
+                  <button type="submit" class="btn btn-sm btn-grad-blue">Create Product <i class="ion-checkmark-round"></i></button>
                   <a href="/dashboard" class="btn btn-sm btn-grad-red">Cancel <i class="ion-ios-close"></i></a>
                 </div>
               </form>

@@ -2696,6 +2696,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -3095,8 +3098,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -3344,15 +3345,94 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      payment: {}
+      payment: {},
+      pet: {},
+      form: new Form({
+        id: '',
+        patient_id: '',
+        pet_name: '',
+        pet_type: '',
+        pet_note: ''
+      })
     };
   },
   mounted: function mounted() {
     this.id = this.$route.params.id;
     this.patientRecords();
+    this.patientPetRecords();
   },
   methods: {
     patientRecords: function patientRecords() {
@@ -3362,13 +3442,47 @@ __webpack_require__.r(__webpack_exports__);
         var data = _ref.data;
         return _this.payment = data;
       });
-    }
-  } // created() {
-  //     axios.get('/api/payment/'+this.id).then(response => {
-  //         this.patient = response.data;
-  //     })
-  // }
+    },
+    patientPetRecords: function patientPetRecords() {
+      var _this2 = this;
 
+      axios.get('/api/pet/' + this.id).then(function (_ref2) {
+        var data = _ref2.data;
+        return _this2.pet = data;
+      });
+    },
+    addPet: function addPet() {
+      var _this3 = this;
+
+      this.$Progress.start();
+      this.form.post('/api/pet').then(function () {
+        Fire.$emit('PetCreated');
+        $('#addNew').modal('hide');
+
+        _this3.$notify({
+          group: 'foo',
+          type: 'success',
+          title: 'SUCCESS',
+          text: 'Pet Added.'
+        });
+      })["catch"](function () {
+        _this3.$Progress.fail();
+      });
+    },
+    petModal: function petModal() {
+      this.editmode = false;
+      this.form.reset();
+      this.form.patient_id = this.payment.id;
+      $('#addNew').modal('show');
+    }
+  },
+  created: function created() {
+    var _this4 = this;
+
+    Fire.$on('PetCreated', function () {
+      _this4.patientPetRecords();
+    });
+  }
 });
 
 /***/ }),
@@ -41316,7 +41430,10 @@ var staticRenderFns = [
       _c(
         "button",
         { staticClass: "btn btn-sm btn-grad-blue", attrs: { type: "submit" } },
-        [_vm._v("Create "), _c("i", { staticClass: "ion-checkmark-round" })]
+        [
+          _vm._v("Create Product "),
+          _c("i", { staticClass: "ion-checkmark-round" })
+        ]
       ),
       _vm._v(" "),
       _c(
@@ -41974,6 +42091,173 @@ var render = function() {
               [
                 _c("div", { staticClass: "card-body" }, [
                   _c("div", { staticClass: "row" }, [
+                    _c("div", { staticClass: "col-md-4" }, [
+                      _c(
+                        "div",
+                        { staticClass: "form-group" },
+                        [
+                          _c("label", { attrs: { for: "pet_name" } }, [
+                            _vm._v("Pet Name")
+                          ]),
+                          _vm._v(" "),
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.form.pet_name,
+                                expression: "form.pet_name"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            class: {
+                              "is-invalid": _vm.form.errors.has("pet_name")
+                            },
+                            attrs: { type: "text", name: "pet_name" },
+                            domProps: { value: _vm.form.pet_name },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.form,
+                                  "pet_name",
+                                  $event.target.value
+                                )
+                              }
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("has-error", {
+                            attrs: { form: _vm.form, field: "pet_name" }
+                          })
+                        ],
+                        1
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-md-4" }, [
+                      _c(
+                        "div",
+                        { staticClass: "form-group" },
+                        [
+                          _c("label", [_vm._v("Pet Type")]),
+                          _vm._v(" "),
+                          _c(
+                            "select",
+                            {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.form.pet_type,
+                                  expression: "form.pet_type"
+                                }
+                              ],
+                              staticClass: "form-control",
+                              class: {
+                                "is-invalid": _vm.form.errors.has("pet_type")
+                              },
+                              attrs: { name: "pet_type", id: "pet_type" },
+                              on: {
+                                change: function($event) {
+                                  var $$selectedVal = Array.prototype.filter
+                                    .call($event.target.options, function(o) {
+                                      return o.selected
+                                    })
+                                    .map(function(o) {
+                                      var val =
+                                        "_value" in o ? o._value : o.value
+                                      return val
+                                    })
+                                  _vm.$set(
+                                    _vm.form,
+                                    "pet_type",
+                                    $event.target.multiple
+                                      ? $$selectedVal
+                                      : $$selectedVal[0]
+                                  )
+                                }
+                              }
+                            },
+                            [
+                              _c("option", [_vm._v("Select")]),
+                              _vm._v(" "),
+                              _c("option", { attrs: { value: "Perro" } }, [
+                                _vm._v("Perro (Dog)")
+                              ]),
+                              _vm._v(" "),
+                              _c("option", { attrs: { value: "Gato" } }, [
+                                _vm._v("Gato (Cat)")
+                              ])
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c("has-error", {
+                            attrs: { form: _vm.form, field: "pet_type" }
+                          })
+                        ],
+                        1
+                      )
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "row" }, [
+                    _c("div", { staticClass: "col-md-8" }, [
+                      _c("div", { staticClass: "form-group" }, [
+                        _c("label", { attrs: { for: "pet_note" } }, [
+                          _vm._v("Notes")
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "textarea",
+                          {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.form.pet_note,
+                                expression: "form.pet_note"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            class: {
+                              "is-invalid": _vm.form.errors.has("pet_note")
+                            },
+                            attrs: {
+                              name: "pet_note",
+                              placeholder: "Pet's Note"
+                            },
+                            domProps: { value: _vm.form.pet_note },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.form,
+                                  "pet_note",
+                                  $event.target.value
+                                )
+                              }
+                            }
+                          },
+                          [
+                            _vm._v(
+                              '                        <has-error :form="form" field="pet_note"></has-error>\n                        '
+                            )
+                          ]
+                        )
+                      ])
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("hr"),
+                  _vm._v(" "),
+                  _c("h5", [_vm._v("Owner's Information")]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "row" }, [
                     _c("div", { staticClass: "col-md-3" }, [
                       _c(
                         "div",
@@ -42249,169 +42533,6 @@ var render = function() {
                         )
                       ])
                     ])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "row" }, [
-                    _c("div", { staticClass: "col-md-4" }, [
-                      _c(
-                        "div",
-                        { staticClass: "form-group" },
-                        [
-                          _c("label", { attrs: { for: "pet_name" } }, [
-                            _vm._v("Pet Name")
-                          ]),
-                          _vm._v(" "),
-                          _c("input", {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.form.pet_name,
-                                expression: "form.pet_name"
-                              }
-                            ],
-                            staticClass: "form-control",
-                            class: {
-                              "is-invalid": _vm.form.errors.has("pet_name")
-                            },
-                            attrs: { type: "text", name: "pet_name" },
-                            domProps: { value: _vm.form.pet_name },
-                            on: {
-                              input: function($event) {
-                                if ($event.target.composing) {
-                                  return
-                                }
-                                _vm.$set(
-                                  _vm.form,
-                                  "pet_name",
-                                  $event.target.value
-                                )
-                              }
-                            }
-                          }),
-                          _vm._v(" "),
-                          _c("has-error", {
-                            attrs: { form: _vm.form, field: "pet_name" }
-                          })
-                        ],
-                        1
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "col-md-4" }, [
-                      _c(
-                        "div",
-                        { staticClass: "form-group" },
-                        [
-                          _c("label", [_vm._v("Pet Type")]),
-                          _vm._v(" "),
-                          _c(
-                            "select",
-                            {
-                              directives: [
-                                {
-                                  name: "model",
-                                  rawName: "v-model",
-                                  value: _vm.form.pet_type,
-                                  expression: "form.pet_type"
-                                }
-                              ],
-                              staticClass: "form-control",
-                              class: {
-                                "is-invalid": _vm.form.errors.has("pet_type")
-                              },
-                              attrs: { name: "pet_type", id: "pet_type" },
-                              on: {
-                                change: function($event) {
-                                  var $$selectedVal = Array.prototype.filter
-                                    .call($event.target.options, function(o) {
-                                      return o.selected
-                                    })
-                                    .map(function(o) {
-                                      var val =
-                                        "_value" in o ? o._value : o.value
-                                      return val
-                                    })
-                                  _vm.$set(
-                                    _vm.form,
-                                    "pet_type",
-                                    $event.target.multiple
-                                      ? $$selectedVal
-                                      : $$selectedVal[0]
-                                  )
-                                }
-                              }
-                            },
-                            [
-                              _c("option", [_vm._v("Select")]),
-                              _vm._v(" "),
-                              _c("option", { attrs: { value: "Perro" } }, [
-                                _vm._v("Perro (Dog)")
-                              ]),
-                              _vm._v(" "),
-                              _c("option", { attrs: { value: "Gato" } }, [
-                                _vm._v("Gato (Cat)")
-                              ])
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c("has-error", {
-                            attrs: { form: _vm.form, field: "pet_type" }
-                          })
-                        ],
-                        1
-                      )
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "row" }, [
-                    _c("div", { staticClass: "col-md-8" }, [
-                      _c("div", { staticClass: "form-group" }, [
-                        _c("label", { attrs: { for: "pet_note" } }, [
-                          _vm._v("Notes")
-                        ]),
-                        _vm._v(" "),
-                        _c(
-                          "textarea",
-                          {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.form.pet_note,
-                                expression: "form.pet_note"
-                              }
-                            ],
-                            staticClass: "form-control",
-                            class: {
-                              "is-invalid": _vm.form.errors.has("pet_note")
-                            },
-                            attrs: {
-                              name: "pet_note",
-                              placeholder: "Pet's Note"
-                            },
-                            domProps: { value: _vm.form.pet_note },
-                            on: {
-                              input: function($event) {
-                                if ($event.target.composing) {
-                                  return
-                                }
-                                _vm.$set(
-                                  _vm.form,
-                                  "pet_note",
-                                  $event.target.value
-                                )
-                              }
-                            }
-                          },
-                          [
-                            _vm._v(
-                              '                        <has-error :form="form" field="pet_note"></has-error>\n                        '
-                            )
-                          ]
-                        )
-                      ])
-                    ])
                   ])
                 ]),
                 _vm._v(" "),
@@ -42438,7 +42559,10 @@ var staticRenderFns = [
       _c(
         "button",
         { staticClass: "btn btn-sm btn-grad-blue", attrs: { type: "submit" } },
-        [_vm._v("Create "), _c("i", { staticClass: "ion-checkmark-round" })]
+        [
+          _vm._v("Create Patient "),
+          _c("i", { staticClass: "ion-checkmark-round" })
+        ]
       ),
       _vm._v(" "),
       _c(
@@ -43124,9 +43248,7 @@ var render = function() {
                     _vm._v(" "),
                     _c("td", [_vm._v(_vm._s(p.product))]),
                     _vm._v(" "),
-                    _c("td", [_vm._v(_vm._s(p.amount))]),
-                    _vm._v(" "),
-                    _c("td", [_vm._v(_vm._s(p.amount_paid))])
+                    _c("td", [_vm._v(_vm._s(p.amount))])
                   ])
                 }),
                 0
@@ -43327,6 +43449,8 @@ var render = function() {
                                 _vm._v(
                                   "\n\t\t\t\t\t\t\t\t\t" +
                                     _vm._s(p.product) +
+                                    " - ₱" +
+                                    _vm._s(p.price) +
                                     "\n\t\t\t\t\t\t\t"
                                 )
                               ]
@@ -43361,7 +43485,7 @@ var render = function() {
                           attrs: {
                             type: "text",
                             name: "amount",
-                            placeholder: "Amount"
+                            placeholder: _vm.form.price
                           },
                           domProps: { value: _vm.form.amount },
                           on: {
@@ -43376,50 +43500,6 @@ var render = function() {
                         _vm._v(" "),
                         _c("has-error", {
                           attrs: { form: _vm.form, field: "amount" }
-                        })
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      { staticClass: "form-group" },
-                      [
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.form.amount_paid,
-                              expression: "form.amount_paid"
-                            }
-                          ],
-                          staticClass: "form-control",
-                          class: {
-                            "is-invalid": _vm.form.errors.has("amount_paid")
-                          },
-                          attrs: {
-                            type: "text",
-                            name: "amount_paid",
-                            placeholder: "Amount Paid"
-                          },
-                          domProps: { value: _vm.form.amount_paid },
-                          on: {
-                            input: function($event) {
-                              if ($event.target.composing) {
-                                return
-                              }
-                              _vm.$set(
-                                _vm.form,
-                                "amount_paid",
-                                $event.target.value
-                              )
-                            }
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c("has-error", {
-                          attrs: { form: _vm.form, field: "amount_paid" }
                         })
                       ],
                       1
@@ -43494,9 +43574,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", [_vm._v("Product")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Amount Charge")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Amount Paid")])
+        _c("th", [_vm._v("Amount Charge")])
       ])
     ])
   },
@@ -43656,9 +43734,18 @@ var render = function() {
   return _c("div", { staticClass: "container mt-4" }, [
     _c("div", { staticClass: "row" }, [
       _c("div", { staticClass: "col-md-8" }, [
-        _c("div", { staticClass: "card" }, [
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-sm btn-grad-blue mb-2",
+            on: { click: _vm.petModal }
+          },
+          [_vm._v("Add New Pet")]
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "card card-info" }, [
           _c("div", { staticClass: "card-header" }, [
-            _c("h3", { staticClass: "card-title" }, [
+            _c("h5", [
               _vm._v(
                 _vm._s(_vm.payment.firstname) +
                   " " +
@@ -43669,34 +43756,22 @@ var render = function() {
             ])
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "card-body" }, [
-            _vm._m(0),
-            _vm._v(" "),
-            _c("p", { staticClass: "text-muted" }, [
-              _vm._v(
-                "\n                  " +
-                  _vm._s(_vm.payment.pet_name) +
-                  "\n                "
-              )
-            ]),
-            _vm._v(" "),
-            _c("hr"),
-            _vm._v(" "),
-            _vm._m(1),
-            _vm._v(" "),
-            _c("p", { staticClass: "text-muted" }, [
-              _vm._v(_vm._s(_vm.payment.pet_type))
-            ]),
-            _vm._v(" "),
-            _c("hr"),
-            _vm._v(" "),
-            _vm._m(2),
-            _vm._v(" "),
-            _c("p", { staticClass: "text-muted" }, [
-              _vm._v(
-                "\n                    " +
-                  _vm._s(_vm.payment.pet_note) +
-                  "\n                "
+          _c("div", { staticClass: "card-body table-responsive p-0" }, [
+            _c("table", { staticClass: "table table-hover" }, [
+              _vm._m(0),
+              _vm._v(" "),
+              _c(
+                "tbody",
+                _vm._l(_vm.pet.pet, function(p) {
+                  return _c("tr", { key: p.id }, [
+                    _c("td", [_vm._v(_vm._s(p.pet_name))]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(p.pet_type))]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(p.created_at))])
+                  ])
+                }),
+                0
               )
             ])
           ])
@@ -43705,11 +43780,11 @@ var render = function() {
       _vm._v(" "),
       _c("div", { staticClass: "col-md-8" }, [
         _c("div", { staticClass: "card card-secondary" }, [
-          _vm._m(3),
+          _vm._m(1),
           _vm._v(" "),
           _c("div", { staticClass: "card-body table-responsive p-0" }, [
             _c("table", { staticClass: "table table-hover" }, [
-              _vm._m(4),
+              _vm._m(2),
               _vm._v(" "),
               _c(
                 "tbody",
@@ -43729,7 +43804,233 @@ var render = function() {
             ])
           ])
         ])
-      ])
+      ]),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "modal fade",
+          attrs: {
+            id: "addNew",
+            tabindex: "-1",
+            role: "dialog",
+            "aria-labelledby": "addNewLabel",
+            "aria-hidden": "true"
+          }
+        },
+        [
+          _c(
+            "div",
+            {
+              staticClass: "modal-dialog modal-dialog-centered",
+              attrs: { role: "document" }
+            },
+            [
+              _c("div", { staticClass: "modal-content" }, [
+                _vm._m(3),
+                _vm._v(" "),
+                _c(
+                  "form",
+                  {
+                    on: {
+                      submit: function($event) {
+                        $event.preventDefault()
+                        return _vm.addPet()
+                      }
+                    }
+                  },
+                  [
+                    _c("div", { staticClass: "modal-body" }, [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.form.patient_id,
+                            expression: "form.patient_id"
+                          }
+                        ],
+                        attrs: { type: "hidden" },
+                        domProps: { value: _vm.form.patient_id },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.form,
+                              "patient_id",
+                              $event.target.value
+                            )
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "form-group" },
+                        [
+                          _c("label", [_vm._v("Pet Name")]),
+                          _vm._v(" "),
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.form.pet_name,
+                                expression: "form.pet_name"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            class: {
+                              "is-invalid": _vm.form.errors.has("pet_name")
+                            },
+                            attrs: { type: "text", name: "pet_name" },
+                            domProps: { value: _vm.form.pet_name },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.form,
+                                  "pet_name",
+                                  $event.target.value
+                                )
+                              }
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("has-error", {
+                            attrs: { form: _vm.form, field: "pet_name" }
+                          })
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "form-group" },
+                        [
+                          _c("label", [_vm._v("Pet Type")]),
+                          _vm._v(" "),
+                          _c(
+                            "select",
+                            {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.form.pet_type,
+                                  expression: "form.pet_type"
+                                }
+                              ],
+                              staticClass: "form-control",
+                              class: {
+                                "is-invalid": _vm.form.errors.has("pet_type")
+                              },
+                              attrs: { name: "pet_type", id: "pet_type" },
+                              on: {
+                                change: function($event) {
+                                  var $$selectedVal = Array.prototype.filter
+                                    .call($event.target.options, function(o) {
+                                      return o.selected
+                                    })
+                                    .map(function(o) {
+                                      var val =
+                                        "_value" in o ? o._value : o.value
+                                      return val
+                                    })
+                                  _vm.$set(
+                                    _vm.form,
+                                    "pet_type",
+                                    $event.target.multiple
+                                      ? $$selectedVal
+                                      : $$selectedVal[0]
+                                  )
+                                }
+                              }
+                            },
+                            [
+                              _c("option", [_vm._v("Select")]),
+                              _vm._v(" "),
+                              _c("option", { attrs: { value: "Perro" } }, [
+                                _vm._v("Perro (Dog)")
+                              ]),
+                              _vm._v(" "),
+                              _c("option", { attrs: { value: "Gato" } }, [
+                                _vm._v("Gato (Cat)")
+                              ])
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c("has-error", {
+                            attrs: { form: _vm.form, field: "pet_type" }
+                          })
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "form-group" }, [
+                        _c("label", { attrs: { for: "pet_note" } }, [
+                          _vm._v("Pet's Note")
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "textarea",
+                          {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.form.pet_note,
+                                expression: "form.pet_note"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            class: {
+                              "is-invalid": _vm.form.errors.has("pet_note")
+                            },
+                            attrs: {
+                              name: "pet_note",
+                              placeholder: "Pet's Note"
+                            },
+                            domProps: { value: _vm.form.pet_note },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.form,
+                                  "pet_note",
+                                  $event.target.value
+                                )
+                              }
+                            }
+                          },
+                          [
+                            _vm._v(
+                              '                            <has-error :form="form" field="pet_note"></has-error>\n                            '
+                            )
+                          ]
+                        )
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _vm._m(4)
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c("notifications", {
+                attrs: { group: "foo", position: "bottom left" }
+              })
+            ],
+            1
+          )
+        ]
+      )
     ])
   ])
 }
@@ -43738,27 +44039,14 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("strong", [
-      _c("i", { staticClass: "ion-ios-information mr-1" }),
-      _vm._v(" Pet Name")
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("strong", [
-      _c("i", { staticClass: "ion-ios-paw mr-1" }),
-      _vm._v(" Pet Type")
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("strong", [
-      _c("i", { staticClass: "ion-edit mr-1" }),
-      _vm._v(" Pet Notes")
+    return _c("thead", [
+      _c("tr", [
+        _c("th", [_vm._v("Pet Name")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Pet Type")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Date Added")])
+      ])
     ])
   },
   function() {
@@ -43766,7 +44054,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "card-header" }, [
-      _c("h5", [_vm._v("Payment Record")])
+      _c("h5", [_vm._v("Payment")])
     ])
   },
   function() {
@@ -43783,6 +44071,50 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", [_vm._v("Date of Payment")])
       ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header" }, [
+      _c("h6", { staticClass: "modal-title", attrs: { id: "addNewLabel" } }, [
+        _vm._v("ADD PET")
+      ]),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "close",
+          attrs: {
+            type: "button",
+            "data-dismiss": "modal",
+            "aria-label": "Close"
+          }
+        },
+        [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-footer" }, [
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-sm btn-grad-red",
+          attrs: { type: "button", "data-dismiss": "modal" }
+        },
+        [_vm._v("Cancel "), _c("i", { staticClass: "ion-close-round" })]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        { staticClass: "btn btn-sm btn-grad-blue", attrs: { type: "submit" } },
+        [_vm._v("Add "), _c("i", { staticClass: "ion-checkmark-round" })]
+      )
     ])
   }
 ]
@@ -44051,7 +44383,7 @@ var render = function() {
                                         }
                                       ]
                                     },
-                                    [_c("i", { staticClass: "ion-eye" })]
+                                    [_vm._v("Show")]
                                   ),
                                   _c(
                                     "span",
@@ -44065,11 +44397,7 @@ var render = function() {
                                         }
                                       ]
                                     },
-                                    [
-                                      _c("i", {
-                                        staticClass: "ion-eye-disabled"
-                                      })
-                                    ]
+                                    [_vm._v("Hide")]
                                   )
                                 ]
                               )

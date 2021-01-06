@@ -15,7 +15,6 @@
 									<th>Patient Name</th>
 									<th>Product</th>
 									<th>Amount Charge</th>
-									<th>Amount Paid</th>
 									<!-- <th>Action</th> -->
 								</tr>
 							</thead>
@@ -24,7 +23,6 @@
 									<td>{{p.firstname}} {{p.middlename}} {{p.lastname}}</td>
 									<td>{{p.product}}</td>
 									<td>{{p.amount}}</td>
-									<td>{{p.amount_paid}}</td>
 			                      <!-- <td>
 			                      	<a href="#" class="btn btn-primary btn-sm" @click="editProduct(product)">View
 			                      		<i class="fas fa-edit"></i>
@@ -65,7 +63,7 @@
         					<select v-model="form.product" class="form-control" :class="{ 'is-invalid': form.errors.has('product') }">
 								<option value="" disabled>Select Product</option>
 								<option v-for="p in products.data" :key="p.id" :value="p.product">
-									{{ p.product }}
+									{{ p.product }} - ₱{{ p.price }}
 							<!-- <input type="text" v-model="form.patient" value="firstname"> -->
 								</option>
 								<has-error :form="form" field="product"></has-error>
@@ -73,17 +71,17 @@
         				</div>
         				<div class="form-group">
         					<input v-model="form.amount" type="text" name="amount"
-        					placeholder="Amount" 
+        					:placeholder="form.price"
         					class="form-control" :class="{ 'is-invalid': form.errors.has('amount') }">
         					<has-error :form="form" field="amount"></has-error>
         				</div>
-        				<div class="form-group">
+        				<!-- <div class="form-group">
         					<input v-model="form.amount_paid" type="text" name="amount_paid"
         					placeholder="Amount Paid" 
         					class="form-control" :class="{ 'is-invalid': form.errors.has('amount_paid') }">
         					<has-error :form="form" field="amount_paid"></has-error>
         				</div>
-        				<!-- <div class="form-group">
+        				<div class="form-group">
         					<input v-model="form.status" type="text" name="status"
         					placeholder="Status" 
         					class="form-control ucfirst" :class="{ 'is-invalid': form.errors.has('status') }">

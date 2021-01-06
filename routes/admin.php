@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 // });
 
 Route::apiResources(['patient' => 'API\PatientController']);
+Route::post('pet', 'API\PatientController@addPet');
+Route::get('pet/{id}', 'API\PatientController@getPet');
 Route::apiResources(['inventory' => 'API\InventoryController']);
 Route::apiResources(['payment' => 'API\PaymentController']);
 Route::apiResources(['activities' => 'API\Admin\ActivityController']);

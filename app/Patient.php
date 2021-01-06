@@ -28,8 +28,8 @@ class Patient extends Model
     {
         return $this->hasMany(Payment::class);
     }
-    public function one()
+    public function pet()
     {
-        return $this->hasOne(Payment::class);
+        return $this->hasMany(Pet::class);
     }
 }

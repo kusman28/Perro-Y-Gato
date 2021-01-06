@@ -19,7 +19,7 @@ class PaymentController extends Controller
         // return Payment::latest()->paginate(5);
         $payments = \DB::table('patients') 
             ->join('payments', 'patients.id', '=', 'payments.patient_id') 
-            ->select('patients.*', 'payments.product', 'payments.amount', 'payments.amount_paid') 
+            ->select('patients.*', 'payments.product', 'payments.amount') 
             ->latest()
             ->paginate(8); 
         return $payments;
@@ -44,7 +44,7 @@ class PaymentController extends Controller
         $this->validate($request, [
             'product' => 'required',
             'amount' => 'required|numeric',
-            'amount_paid' => 'required|numeric',
+            // 'amount_paid' => 'required|numeric',
             // 'status' => 'required'
         ]);
 
@@ -96,7 +96,7 @@ class PaymentController extends Controller
 
     public function totalsales() {
         // return Payment::sum('amount_paid');
-        $data["totalsales"] = Payment::get()->sum("amount_paid");
+        $data["totalsales"] = Payment::get()->sum("amount");
         return $data;
     }
 }
